@@ -81,6 +81,7 @@ class GlowCookies {
   }
 
   checkStatus() {
+    var preference = localStorage.getItem()
     switch (localStorage.getItem("GlowCookies")) {
       case "1":
         this.openManageCookies();
@@ -107,7 +108,8 @@ class GlowCookies {
 
   acceptCookies() {
     localStorage.setItem("GlowCookies", "1")
-    document.cookie = "GlowCookies=1; path=/";    
+    var domain = window.location.hostname;
+    document.cookie = "GlowCookies=1; path=/; domain=." + domain;
     this.openManageCookies()
     this.activateTracking()
     this.addCustomScript()
@@ -115,7 +117,8 @@ class GlowCookies {
 
   rejectCookies() {
     localStorage.setItem("GlowCookies", "0");
-    document.cookie = "GlowCookies=0"; 
+    var domain = window.location.hostname;
+    document.cookie = "GlowCookies=0; path=/; domain=." + domain;
     this.openManageCookies();
     this.disableTracking();
   }
