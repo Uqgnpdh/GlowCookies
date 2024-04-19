@@ -107,7 +107,7 @@ class GlowCookies {
 
   acceptCookies() {
     localStorage.setItem("GlowCookies", "1")
-    document.cookie = "GlowCookies=1";    
+    document.cookie = "GlowCookies=1; path=/";    
     this.openManageCookies()
     this.activateTracking()
     this.addCustomScript()
