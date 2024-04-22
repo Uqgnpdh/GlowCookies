@@ -81,8 +81,7 @@ class GlowCookies {
   }
 
   checkStatus() {
-    var preference = localStorage.getItem("GlowCookies");
-    switch (preference) {
+    switch (localStorage.getItem("GlowCookies")) {
       case "1":
         this.openManageCookies();
         this.activateTracking();
